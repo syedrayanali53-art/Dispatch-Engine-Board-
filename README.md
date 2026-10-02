@@ -1,4 +1,4 @@
-# Dispatch Board
+# Relay Dispatch Board
 
 **A dispatch planning and reporting demo for moving operations.**
 
@@ -54,9 +54,9 @@ Relay makes those checks part of the assignment workflow. Incomplete jobs remain
 
 ## Quick start
 
-1. Download or clone this repository.
-2. Keep `index.html` and the `assets/` folder together.
-3. Open `index.html` in a modern browser.
+**Easiest way:** download [`dispatch_board.html`](dispatch_board.html), then double-click it to open the full interactive board in your browser. This single file includes the styles, JavaScript, and fictional data; no other files or server are needed. On GitHub, open the file and use **Download raw file**.
+
+For development, download or clone the repository, keep `index.html` and `assets/` together, and open `index.html`.
 
 The app works offline. You can also serve the repository with any static web server. If Python is installed:
 
@@ -119,7 +119,8 @@ The same validation functions support resource pickers, saves, drag-and-drop, re
 
 | Path | Purpose |
 | --- | --- |
-| [`index.html`](index.html) | Application entry point and accessible page structure. |
+| [`dispatch_board.html`](dispatch_board.html) | Self-contained browser demo; download and double-click to run. |
+| [`index.html`](index.html) | Application entry point and accessible page structure for development. |
 | [`assets/css/styles.css`](assets/css/styles.css) | Layout, theme, responsive styles, and print styles. |
 | [`assets/js/app.js`](assets/js/app.js) | Fictional data, assignment rules, UI behavior, reports, persistence, and exports. |
 | [`docs/ENGINE.md`](docs/ENGINE.md) | Detailed explanation of the engine and reporting calculations. |
