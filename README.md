@@ -1,4 +1,4 @@
-# Relay Dispatch Board
+# Dispatch Board
 
 **A dispatch planning and reporting demo for moving operations.**
 
