@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Relay is an interactive dispatch planning demo with entirely fictional jobs, people, vehicles, and locations. Runs offline without installation.">
+  <meta name="color-scheme" content="light">
+  <title>Relay — Dispatch board demo</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232c50ed'/%3E%3Cpath d='M9 23V9h8a5 5 0 0 1 0 10h-3l8 4M9 16h8' stroke='white' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dispatch workspace</a>
+  <aside class="sidebar" aria-label="Main navigation">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">R</span><span class="brand-word">relay</span></div>
+    <div class="nav-caption">WORKSPACE</div>
+    <nav class="nav-list" id="navigation"></nav>
+    <div class="sidebar-bottom">
+      <div class="demo-side"><span data-icon="shield"></span><div>Demo workspace<small>All records are fictional.</small></div></div>
+      <div class="shortcut"><span>Quick search</span><kbd>/</kbd></div>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="breadcrumb"><span>Operations</span><span aria-hidden="true">/</span><strong id="breadcrumb">Dispatch board</strong></div>
+      <div class="top-actions"><span class="saved" id="save-status"></span><span class="top-rule"></span><button class="icon-button" id="undo" title="Undo (Ctrl/⌘ Z)" aria-label="Undo last change" disabled data-action="undo"><span data-icon="undo"></span></button><button class="icon-button" id="redo" title="Redo (Ctrl/⌘ Shift Z)" aria-label="Redo last change" disabled data-action="redo"><span data-icon="redo"></span></button><span class="avatar-self" title="Demo dispatcher">DP</span></div>
+    </header>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page-heading"><div><div class="title-line"><h1 id="page-title">Dispatch board</h1><span class="demo-badge">DEMO</span></div><p class="page-subtitle" id="page-subtitle">October 2030 · Local operations</p></div><div class="page-actions"><div class="export-wrap"><button class="btn" id="export-button" data-action="export-menu" aria-expanded="false" aria-controls="export-menu"><span data-icon="download"></span>Export CSV<span data-icon="chevronDown"></span></button><div class="export-menu" id="export-menu" hidden><button data-action="export-schedule"><span data-icon="table"></span>Current schedule</button><button data-action="export-summary"><span data-icon="chart"></span>Daily summary</button><button data-action="export-activity"><span data-icon="activity"></span>Activity log</button></div></div><button class="btn primary" data-action="new"><span data-icon="plus"></span>New job</button></div></div>
+      <div class="datebar"><div class="date-tabs" id="date-tabs" aria-label="Schedule dates"></div><div class="period"><span data-icon="calendar"></span>October 14–16, 2030</div></div>
+      <div class="overview-caption"><span id="overview-scope">DAY OVERVIEW</span><span>Fictional planning scenario</span></div>
+      <section class="metrics" id="metrics" aria-label="Schedule overview"></section>
+      <div class="filterbar" id="filters"><div class="filter-left"><label class="searchbox"><span data-icon="search"></span><input type="search" id="search" placeholder="Search jobs, places, people…" aria-label="Search jobs, places, and people" autocomplete="off"><kbd aria-hidden="true">/</kbd></label><select class="filter-select" id="service-filter" aria-label="Filter by service"><option value="all">All services</option></select><button class="filter-toggle" id="attention-filter" data-action="attention" aria-pressed="false"><span data-icon="filter"></span>Needs attention</button><button class="filter-reset" data-action="clear-filters" id="clear-filters" hidden>Clear filters</button></div><span class="result-count" id="result-count" aria-live="polite"></span></div>
+      <p class="filter-hint" id="view-hint"></p>
+      <section id="view" aria-label="Dispatch jobs"></section>
+      <footer class="bottom-note"><span id="footer-copy">Demo data only. Changes stay in this browser.</span><button data-action="reset">Reset demo</button></footer>
+    </main>
+  </div>
+  <dialog class="drawer" id="job-dialog" aria-labelledby="drawer-title"></dialog>
+  <dialog class="compact-dialog" id="confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">Reset this demo?</h2><p>This restores the fictional schedule and clears your local edits and activity. The reset can be undone until you refresh.</p><div class="dialog-actions"><button class="btn" data-action="cancel-reset">Keep my changes</button><button class="btn primary" data-action="confirm-reset">Reset demo</button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">Enable JavaScript to use this interactive dispatch demo. It works offline and does not connect to any external service.</div></noscript>
+  <!-- The demo dataset in assets/js/app.js is entirely fictional. -->
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
